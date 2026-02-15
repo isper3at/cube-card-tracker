@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "cube-card-tracker"
+version = "0.1.0"
+description = "Card recognition system for tracking cube cards and returning them to owners"
+authors = ["Andrew Smith <smith3at@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "cube_card_tracker", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+opencv-python = "^4.5.0"
+numpy = "^1.19.0"
+pydantic = "^2.0.0"
+pyyaml = "^6.0"
+toml = "^0.10.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+black = "^23.0.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+mypy = "^1.0.0"
+
+[tool.poetry.scripts]
+cube-register = "cube_card_tracker.cli:register_cards"
+cube-recognize = "cube_card_tracker.cli:recognize_cards"
+cube-init = "cube_card_tracker.cli:init_cube"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=cube_card_tracker --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

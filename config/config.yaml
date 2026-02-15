@@ -1,0 +1,12 @@
+active_cube: cube_name
+cubes:
+  my_cube:
+    database_path: data/databases/my_cube.pkl
+    owners: [Alice, Bob]
+users:
+  Alice:
+    email: alice@example.com
+    total_cards: 270
+recognition:
+  min_matches: 20
+  orb_features: 2000
