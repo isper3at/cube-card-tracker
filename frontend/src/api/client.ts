@@ -45,3 +45,4 @@ export async function apiUpload<T>(path: string, formData: FormData): Promise<T>
 
 // Export so checkin.ts can build image src URLs directly
 export { API_URL };
+

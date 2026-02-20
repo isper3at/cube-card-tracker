@@ -248,3 +248,4 @@ class CardAssignment(BaseModel):
             data['card'] = self.card.to_dict()
             data['player'] = self.player.to_dict()
         return data
+

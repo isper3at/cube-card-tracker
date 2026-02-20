@@ -2,3 +2,56 @@ Usage: flask run [OPTIONS]
 Try 'flask run --help' for help.
 
 Error: Failed to find attribute 'app' in 'wsgi'.
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: Failed to find attribute 'app' in 'wsgi'.
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.184:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 992-916-137
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.184:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 992-916-137
+127.0.0.1 - - [19/Feb/2026 20:48:02] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [19/Feb/2026 20:53:13] "[33mGET /index HTTP/1.1[0m" 404 -
+127.0.0.1 - - [19/Feb/2026 20:53:17] "[33mGET /index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [19/Feb/2026 21:04:19] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:04:19] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:04:19] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:04:27] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:04:27] "[35m[1mPOST /api/tournaments/ HTTP/1.1[0m" 201 -
+127.0.0.1 - - [19/Feb/2026 21:04:48] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:04:48] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.184:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 868-068-559
+127.0.0.1 - - [19/Feb/2026 21:42:50] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:42:50] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:42:50] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:57:01] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 21:57:01] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [19/Feb/2026 22:02:01] "POST /api/checkin/1935a38e-02d0-4049-9e1b-b87c209e05bf/upload HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 22:02:02] "GET /api/checkin/1935a38e-02d0-4049-9e1b-b87c209e05bf/annotated?t=1771567321607 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 23:10:47] "OPTIONS /api/checkin/1935a38e-02d0-4049-9e1b-b87c209e05bf/cards/3 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Feb/2026 23:10:47] "PATCH /api/checkin/1935a38e-02d0-4049-9e1b-b87c209e05bf/cards/3 HTTP/1.1" 200 -

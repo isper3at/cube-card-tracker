@@ -72,3 +72,4 @@ config: dict[str, type[Config]] = {
     "testing": TestingConfig,
     "default": DevelopmentConfig,
 }
+

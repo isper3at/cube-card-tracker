@@ -173,21 +173,22 @@ start_backend() {
     info "Starting backend on http://localhost:$BACKEND_PORT"
     info "  Logs → $log_file"
 
-    pushd "$BACKEND_DIR" > /dev/null
-
-    # Load .env manually so poetry run inherits variables
+    # Load backend .env into the current shell so the background process inherits them
     set -o allexport
-    [[ -f ".env" ]] && source ".env"
+    [[ -f "$BACKEND_DIR/.env" ]] && source "$BACKEND_DIR/.env"
     set +o allexport
 
-    poetry run flask --app wsgi:app run \
-        --host 0.0.0.0 \
-        --port "$BACKEND_PORT" \
-        --debug \
-        >> "$log_file" 2>&1 &
+    # Run inside a subshell that cd's first — backgrounding after pushd doesn't
+    # preserve the working directory for the child process.
+    (
+        cd "$BACKEND_DIR"
+        poetry run flask --app wsgi:app run \
+            --host 0.0.0.0 \
+            --port "$BACKEND_PORT" \
+            --debug
+    ) >> "$log_file" 2>&1 &
 
     BACKEND_PID=$!
-    popd > /dev/null
 
     # Wait briefly to catch immediate crash
     sleep 2
@@ -213,13 +214,13 @@ start_frontend() {
     info "Starting frontend on http://localhost:$FRONTEND_PORT  (Parcel)"
     info "  Logs → $log_file"
 
-    pushd "$FRONTEND_DIR" > /dev/null
-
-    npm run dev \
-        >> "$log_file" 2>&1 &
+    # Run inside a subshell that cd's first (same reason as backend)
+    (
+        cd "$FRONTEND_DIR"
+        npm run dev
+    ) >> "$log_file" 2>&1 &
 
     FRONTEND_PID=$!
-    popd > /dev/null
 
     # Wait briefly to catch immediate crash
     sleep 3

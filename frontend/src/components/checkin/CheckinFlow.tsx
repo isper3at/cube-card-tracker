@@ -250,3 +250,4 @@ export function CheckinFlow({ tournamentId, onComplete }: Props) {
     </div>
   );
 }
+

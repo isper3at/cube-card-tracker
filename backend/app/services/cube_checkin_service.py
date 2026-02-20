@@ -209,3 +209,4 @@ class CubeCheckinService:
         cube.total_cards = len(cube.cards)
         cube.cards_confirmed = sum(1 for c in cube.cards if c.confirmed_name)
         db.session.commit()
+

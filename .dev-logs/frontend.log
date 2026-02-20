@@ -11,3 +11,41 @@ Building...
   > 1 | 
   >   | ^ JSON5: invalid end of input at 1:1
 
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+🚨 Build failed.
+
+@parcel/utils: Failed to parse tsconfig.json
+
+  /home/me/dev/cube-card-tracker/frontend/tsconfig.json:1:1
+  > 1 | 
+  >   | ^ JSON5: invalid end of input at 1:1
+
+
+@parcel/reporter-dev-server: Could not shutdown devserver because it does not 
+exist.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Server running at http://localhost:5173
+✨ Built in 7.57s
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Server running at http://localhost:5173
+✨ Built in 11.15s

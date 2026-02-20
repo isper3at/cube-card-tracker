@@ -199,3 +199,4 @@ def list_cards(session_id):
     cube = Cube.query.filter_by(session_id=session_id).first_or_404()
     cards = Card.query.filter_by(cube_id=cube.id).order_by(Card.bbox_y, Card.bbox_x).all()
     return jsonify([c.to_dict() for c in cards])
+
