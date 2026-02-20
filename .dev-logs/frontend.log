@@ -1,0 +1,13 @@
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+🚨 Build failed.
+
+@parcel/utils: Failed to parse tsconfig.json
+
+  /home/me/dev/cube-card-tracker/frontend/tsconfig.json:1:1
+  > 1 | 
+  >   | ^ JSON5: invalid end of input at 1:1
+
