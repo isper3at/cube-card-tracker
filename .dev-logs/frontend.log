@@ -73,3 +73,27 @@ whenever possible.
 Bundling...
 Server running at http://localhost:5173
 ✨ Built in 10.37s
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Server running at http://localhost:5173
+✨ Built in 7.50s
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Server running at http://localhost:5173
+✨ Built in 4.58s

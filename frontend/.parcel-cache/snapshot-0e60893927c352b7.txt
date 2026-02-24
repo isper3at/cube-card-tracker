@@ -1450,7 +1450,7 @@
 99/home/me/dev/cube-card-tracker/frontend/node_modules/caniuse-lite/data/features/intl-pluralrules.js1771560709839814918 0
 87/home/me/dev/cube-card-tracker/frontend/node_modules/baseline-browser-mapping/README.md1771560706330766865 0
 94/home/me/dev/cube-card-tracker/frontend/node_modules/tailwindcss/src/util/resolveConfigPath.js1771560709984816902 0
-57/home/me/dev/cube-card-tracker/frontend/package-lock.json1771571888099033610 0
+57/home/me/dev/cube-card-tracker/frontend/package-lock.json1771913273144355600 0
 110/home/me/dev/cube-card-tracker/frontend/node_modules/lmdb/dependencies/lmdb-data-v1/libraries/liblmdb/mtest6.c1771560708360794673 0
 66/home/me/dev/cube-card-tracker/frontend/node_modules/react-dom/cjs1771560708986803244 1
 102/home/me/dev/cube-card-tracker/frontend/node_modules/react-dom/umd/react-dom-test-utils.development.js1771560707657785046 0
@@ -2031,7 +2031,7 @@
 60/home/me/dev/cube-card-tracker/frontend/node_modules/thenify1771560705379753829 1
 70/home/me/dev/cube-card-tracker/frontend/node_modules/is-glob/README.md1771560705547756132 0
 73/home/me/dev/cube-card-tracker/frontend/node_modules/color-name/README.md1771560705457754899 0
-52/home/me/dev/cube-card-tracker/frontend/node_modules1771571887875029090 1
+52/home/me/dev/cube-card-tracker/frontend/node_modules1771913272905354055 1
 88/home/me/dev/cube-card-tracker/frontend/node_modules/update-browserslist-db/package.json1771560705745758847 0
 71/home/me/dev/cube-card-tracker/frontend/node_modules/fastq/test/test.js1771560705900760972 0
 92/home/me/dev/cube-card-tracker/frontend/node_modules/tailwindcss/types/generated/colors.d.ts1771560710300821225 0
@@ -2440,7 +2440,7 @@
 92/home/me/dev/cube-card-tracker/frontend/node_modules/tailwindcss/lib/lib/defaultExtractor.js1771560707671785238 0
 87/home/me/dev/cube-card-tracker/frontend/node_modules/ts-interface-checker/dist/types.js1771560705986762151 0
 86/home/me/dev/cube-card-tracker/frontend/node_modules/tailwindcss/lib/util/dataTypes.js1771560707623784581 0
-70/home/me/dev/cube-card-tracker/frontend/node_modules/@msgpackr-extract1771571887876029110 1
+70/home/me/dev/cube-card-tracker/frontend/node_modules/@msgpackr-extract1771913272908354074 1
 98/home/me/dev/cube-card-tracker/frontend/node_modules/@parcel/reporter-tracer/lib/TracerReporter.js1771560705312752910 0
 84/home/me/dev/cube-card-tracker/frontend/node_modules/@swc/helpers/_/_sliced_to_array1771560709856815151 1
 78/home/me/dev/cube-card-tracker/frontend/node_modules/@swc/counter/CHANGELOG.md1771560705215751581 0
@@ -2953,7 +2953,7 @@
 73/home/me/dev/cube-card-tracker/frontend/node_modules/resolve/package.json1771560708437795728 0
 95/home/me/dev/cube-card-tracker/frontend/node_modules/@parcel/markdown-ansi/src/markdown-ansi.js1771560705519755748 0
 72/home/me/dev/cube-card-tracker/frontend/node_modules/tailwindcss/lib/css1771560706338766975 1
-60/home/me/dev/cube-card-tracker/frontend/node_modules/@parcel1771571887875029090 1
+60/home/me/dev/cube-card-tracker/frontend/node_modules/@parcel1771913272908354074 1
 93/home/me/dev/cube-card-tracker/frontend/node_modules/caniuse-lite/data/features/hashchange.js1771560709653812372 0
 92/home/me/dev/cube-card-tracker/frontend/node_modules/sucrase/dist/util/getDeclarationInfo.js1771560707366781060 0
 89/home/me/dev/cube-card-tracker/frontend/node_modules/tailwindcss/lib/lib/generateRules.js1771560708406795303 0
@@ -4978,7 +4978,7 @@
 99/home/me/dev/cube-card-tracker/frontend/node_modules/chokidar/node_modules/glob-parent/package.json1771560705468755049 0
 67/home/me/dev/cube-card-tracker/frontend/node_modules/chokidar/types1771560706098763686 1
 78/home/me/dev/cube-card-tracker/frontend/node_modules/chokidar/types/index.d.ts1771560706151764412 0
-57/home/me/dev/cube-card-tracker/frontend/node_modules/@swc1771571887875029090 1
+57/home/me/dev/cube-card-tracker/frontend/node_modules/@swc1771913272907354068 1
 80/home/me/dev/cube-card-tracker/frontend/node_modules/@types/react-dom/index.d.ts1771560705613757037 0
 72/home/me/dev/cube-card-tracker/frontend/node_modules/@swc/core/README.md1771560705119750264 0
 80/home/me/dev/cube-card-tracker/frontend/node_modules/@parcel/plugin/package.json1771560705888760808 0
@@ -5071,7 +5071,7 @@
 67/home/me/dev/cube-card-tracker/frontend/node_modules/clone/clone.js1771560705610756996 0
 98/home/me/dev/cube-card-tracker/frontend/node_modules/@swc/helpers/_/_get_prototype_of/package.json1771560709517810511 0
 85/home/me/dev/cube-card-tracker/frontend/node_modules/@swc/helpers/_/_write_only_error1771560710238820377 1
-58/home/me/dev/cube-card-tracker/frontend/node_modules/@lmdb1771571887876029110 1
+58/home/me/dev/cube-card-tracker/frontend/node_modules/@lmdb1771913272908354074 1
 61/home/me/dev/cube-card-tracker/frontend/node_modules/.bin/tsc1771560714246875160 0
 107/home/me/dev/cube-card-tracker/frontend/node_modules/@swc/helpers/_/_class_private_method_init/package.json1771560709316807761 0
 66/home/me/dev/cube-card-tracker/frontend/node_modules/fast-glob/out1771560707209778910 1
@@ -5389,7 +5389,7 @@
 90/home/me/dev/cube-card-tracker/frontend/node_modules/sucrase/dist/util/getJSXPragmaInfo.js1771560707401781540 0
 88/home/me/dev/cube-card-tracker/frontend/node_modules/@parcel/reporter-dev-server/LICENSE1771560705114750196 0
 93/home/me/dev/cube-card-tracker/frontend/node_modules/utility-types/dist/functional-helpers.js1771560705430754528 0
-71/home/me/dev/cube-card-tracker/frontend/node_modules/.package-lock.json1771571888540042506 0
+71/home/me/dev/cube-card-tracker/frontend/node_modules/.package-lock.json1771913273273356434 0
 71/home/me/dev/cube-card-tracker/frontend/node_modules/sucrase/dist/types1771560709274807186 1
 80/home/me/dev/cube-card-tracker/frontend/node_modules/sucrase/dist/types/cli.d.ts1771560708995803368 0
 78/home/me/dev/cube-card-tracker/frontend/node_modules/sucrase/dist/types/parser1771560709129805201 1

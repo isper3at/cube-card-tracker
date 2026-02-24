@@ -85,3 +85,211 @@ Error: Failed to find attribute 'app' in 'wsgi'.
 127.0.0.1 - - [19/Feb/2026 23:45:07] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
 127.0.0.1 - - [19/Feb/2026 23:45:31] "POST /api/checkin/ac9c9fe5-61a9-4297-9387-962b5d24e35d/upload HTTP/1.1" 200 -
 127.0.0.1 - - [19/Feb/2026 23:45:31] "GET /api/checkin/ac9c9fe5-61a9-4297-9387-962b5d24e35d/annotated?t=1771573531318 HTTP/1.1" 200 -
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.184:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [23/Feb/2026 22:02:27] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:02:27] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:02:27] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:02:54] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:02:54] "[35m[1mPOST /api/tournaments/ HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Feb/2026 22:03:12] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:03:12] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Feb/2026 22:03:47] "POST /api/checkin/7ec3fc19-ceef-486e-9f45-bd75e3b40519/upload HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:03:47] "GET /api/checkin/7ec3fc19-ceef-486e-9f45-bd75e3b40519/annotated?t=1771913027789 HTTP/1.1" 200 -
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.184:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [23/Feb/2026 22:08:23] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:08:23] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:08:23] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:08:32] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:08:32] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Feb/2026 22:08:51] "POST /api/checkin/e0778eec-3cf1-4988-92f9-30b66a97295a/upload HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:08:51] "GET /api/checkin/e0778eec-3cf1-4988-92f9-30b66a97295a/annotated?t=1771913331294 HTTP/1.1" 200 -
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [23/Feb/2026 22:16:28] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:16:28] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:16:28] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:16:35] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:16:35] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Feb/2026 22:16:52] "POST /api/checkin/e73822e6-1064-4ec9-9916-bfd4709d4751/upload HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2026 22:16:52] "GET /api/checkin/e73822e6-1064-4ec9-9916-bfd4709d4751/annotated?t=1771913812298 HTTP/1.1" 200 -
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 250, in locate_app
+    raise NoAppException(
+    ...<2 lines>...
+    ) from None
+flask.cli.NoAppException: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 42, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
+ * Debugger is active!
+ * Debugger PIN: 858-991-302
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 250, in locate_app
+    raise NoAppException(
+    ...<2 lines>...
+    ) from None
+flask.cli.NoAppException: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 42, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
+ * Debugger is active!
+ * Debugger PIN: 858-991-302
+127.0.0.1 - - [23/Feb/2026 22:47:45] "[35m[1mOPTIONS /api/tournaments/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 974, in app
+    raise err from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 250, in locate_app
+    raise NoAppException(
+    ^^^^^^^^^^^
+flask.cli.NoAppException: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 42, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
+127.0.0.1 - - [23/Feb/2026 22:47:45] "[35m[1mOPTIONS /api/tournaments/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 974, in app
+    raise err from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/werkzeug/debug/__init__.py", line 347, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 974, in app
+    raise err from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 250, in locate_app
+    raise NoAppException(
+    ^^^^^^^^^^^
+flask.cli.NoAppException: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 42, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 42, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
