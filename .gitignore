@@ -52,6 +52,8 @@ data/images/*
 !data/images/.gitkeep
 data/cubes/*
 !data/cubes/.gitkeep
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
 
 # Configuration (may want to exclude local configs)
 # config/cube_tracker_config.yaml
