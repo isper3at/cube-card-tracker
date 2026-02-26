@@ -3,20 +3,20 @@ Cube check-in service.
 
 Assumptions:
   - Cards are photographed upright (no rotation needed)
-  - Cards may be fanned/stacked in columns (only title bar visible per card)
-  - Any number of cards per image
+  - Cards may be fanned/stacked vertically or horizontally
+  - Any number of cards, any arrangement
 
 Debug output
 ────────────
 Set CHECKIN_DEBUG_DIR env var or pass debug_dir= to constructor.
 
   <debug_dir>/<image_stem>/
-    [all DetectionService pipeline stages — see detection_service.py]
+    [DetectionService pipeline stages]
     cards/
       card_00/
         title_strip.jpg       ← raw crop sent to OCR
         title_strip_ocr.jpg   ← after preprocessing
-        result.txt            ← raw_ocr | matched name | score | bbox
+        result.txt
       card_01/ ...
 """
 
@@ -71,8 +71,11 @@ class CubeCheckinService:
     def process_image(self, image_path: str, cube: Cube) -> List[Card]:
         """
         Process an uploaded image containing any number of cards.
-        Detection service handles both full-card and fanned/stacked layouts.
         Returns a list of Card instances (not yet committed).
+
+        Note: some false-positive detections are expected (dark playmat edges,
+        decorative borders). These will have no OCR match and will appear as
+        red "unrecognized" regions for admin review and dismissal.
         """
         logger.info(f"Processing image for cube {cube.id}: {image_path}")
 
@@ -84,9 +87,8 @@ class CubeCheckinService:
         boxes: List[BBox] = self.detection_service.detect_cards(
             img, image_name=image_name
         )
-        logger.info(f"Detected {len(boxes)} card region(s)")
+        logger.info(f"Detected {len(boxes)} region(s) (including possible false positives)")
 
-        # Per-image card debug folder
         card_dbg_root: Optional[Path] = None
         if self._debug_dir:
             stem = Path(image_path).stem.replace(" ", "_")[:60]
@@ -98,13 +100,12 @@ class CubeCheckinService:
             dbg_folder = card_dbg_root / f"card_{idx:02d}" if card_dbg_root else None
             if dbg_folder:
                 dbg_folder.mkdir(exist_ok=True)
-
             card = self._process_card_region(img, bbox, cube.id, dbg_folder)
             if card is not None:
                 cards.append(card)
 
         matched = sum(1 for c in cards if c.recognized_name)
-        logger.info(f"Processed {len(cards)} card(s), {matched} matched by OCR")
+        logger.info(f"Processed {len(cards)} region(s), {matched} matched by OCR")
         return cards
 
     # ─────────────────────────────────────────────────────────────────────────
@@ -118,18 +119,11 @@ class CubeCheckinService:
         cube_id: int,
         dbg: Optional[Path],
     ) -> Optional[Card]:
-        """
-        Crop the title strip, run OCR, fuzzy match, return a Card.
-        The bbox is already cropped to just the title bar by the detection service.
-        """
         x, y, w, h = bbox
         img_h, img_w = img.shape[:2]
 
-        x1 = max(0, x)
-        y1 = max(0, y)
-        x2 = min(img_w, x + w)
-        y2 = min(img_h, y + h)
-
+        x1, y1 = max(0, x), max(0, y)
+        x2, y2 = min(img_w, x + w), min(img_h, y + h)
         if (x2 - x1) < 10 or (y2 - y1) < 5:
             return None
 
@@ -139,7 +133,6 @@ class CubeCheckinService:
             _dbg_save(dbg / "title_strip.jpg", title_strip)
 
         preprocessed = _preprocess_for_ocr(title_strip)
-
         if dbg:
             _dbg_save(dbg / "title_strip_ocr.jpg", preprocessed)
 
@@ -160,9 +153,6 @@ class CubeCheckinService:
                 encoding="utf-8",
             )
 
-        # Polygon as 4-corner rectangle for annotation compatibility
-        polygon = [[x1, y1], [x2, y1], [x2, y2], [x1, y2]]
-
         return Card(
             cube_id=cube_id,
             raw_ocr_text=raw_text,
@@ -173,7 +163,7 @@ class CubeCheckinService:
             bbox_y=y1,
             bbox_width=x2 - x1,
             bbox_height=y2 - y1,
-            polygon_json=polygon,
+            polygon_json=[[x1,y1],[x2,y1],[x2,y2],[x1,y2]],
             thumbnail_base64=_make_thumbnail(title_strip),
         )
 
@@ -182,44 +172,32 @@ class CubeCheckinService:
     # ─────────────────────────────────────────────────────────────────────────
 
     def render_annotated_image(
-        self,
-        image_path: str,
-        cards: List[Card],
-        output_path: str,
+        self, image_path: str, cards: List[Card], output_path: str
     ) -> bool:
         try:
             img = cv2.imread(image_path)
             if img is None:
                 return False
-
             for card in cards:
                 x, y = card.bbox_x, card.bbox_y
                 x2, y2 = x + card.bbox_width, y + card.bbox_height
-
-                if card.confirmed_name:
-                    colour = (34, 197, 94)
-                elif card.recognized_name:
-                    colour = (251, 191, 36)
-                else:
-                    colour = (239, 68, 68)
-
+                colour = (
+                    (34, 197, 94) if card.confirmed_name else
+                    (251, 191, 36) if card.recognized_name else
+                    (239, 68, 68)
+                )
                 cv2.rectangle(img, (x, y), (x2, y2), colour, 2)
-
                 name = card.display_name
                 font, fs, th = cv2.FONT_HERSHEY_SIMPLEX, 0.55, 1
                 (tw, text_h), bl = cv2.getTextSize(name, font, fs, th)
-                label_y = max(0, y - 4)
-                cv2.rectangle(img, (x, label_y - text_h - bl - 2),
-                              (x + tw + 6, label_y + 2), colour, -1)
-                text_colour = (30, 30, 30) if colour == (251, 191, 36) else (255, 255, 255)
-                cv2.putText(img, name, (x + 3, label_y - bl),
-                            font, fs, text_colour, th, cv2.LINE_AA)
-
+                ly = max(0, y - 4)
+                cv2.rectangle(img, (x, ly-text_h-bl-2), (x+tw+6, ly+2), colour, -1)
+                tc = (30,30,30) if colour == (251,191,36) else (255,255,255)
+                cv2.putText(img, name, (x+3, ly-bl), font, fs, tc, th, cv2.LINE_AA)
             cv2.imwrite(output_path, img, [cv2.IMWRITE_JPEG_QUALITY, 90])
             return True
-
         except Exception as e:
-            logger.error(f"Failed to render annotated image: {e}")
+            logger.error(f"render_annotated_image: {e}")
             return False
 
     # ─────────────────────────────────────────────────────────────────────────
@@ -228,35 +206,61 @@ class CubeCheckinService:
 
     def update_card_name(self, card: Card, confirmed_name: str):
         card.confirmed_name = confirmed_name
-        card.status         = CardStatus.CONFIRMED
+        card.status = CardStatus.CONFIRMED
         db.session.commit()
 
     def finalize_cube(self, cube: Cube):
-        cube.status          = CubeStatus.CHECKED_IN
-        cube.total_cards     = len(cube.cards)
+        cube.status = CubeStatus.CHECKED_IN
+        cube.total_cards = len(cube.cards)
         cube.cards_confirmed = sum(1 for c in cube.cards if c.confirmed_name)
         db.session.commit()
 
+    def analyze_card_region(self, image_path: str, bbox_dict: dict, cube: Cube) -> Card:
+        """
+        Analyze a specific bounding box region in an image and create a Card.
+
+        Args:
+            image_path: Path to the image file
+            bbox_dict: Dict with keys 'x', 'y', 'w', 'h'
+            cube: The Cube model instance
+
+        Returns:
+            A new Card object (not yet committed to DB)
+        """
+        img = cv2.imread(image_path)
+        if img is None:
+            raise ValueError(f"Could not read image: {image_path}")
+
+        bbox = (
+            int(bbox_dict.get('x', 0)),
+            int(bbox_dict.get('y', 0)),
+            int(bbox_dict.get('w', 0)),
+            int(bbox_dict.get('h', 0)),
+        )
+
+        card = self._process_card_region(img, bbox, cube.id, None)
+        if card is None:
+            raise ValueError("Could not process card region (region too small?)")
+
+        return card
+
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Helpers
+# Module helpers
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _preprocess_for_ocr(img: np.ndarray) -> np.ndarray:
-    """CLAHE + upscale + adaptive threshold for Tesseract."""
     if img.size == 0:
         return img
     h, w = img.shape[:2]
     if h < 60:
         scale = 60 / h
-        img = cv2.resize(img, (max(1, int(w * scale)), 60),
-                         interpolation=cv2.INTER_CUBIC)
+        img = cv2.resize(img, (max(1, int(w*scale)), 60), interpolation=cv2.INTER_CUBIC)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if img.ndim == 3 else img.copy()
     clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
     gray = clahe.apply(gray)
     gray = cv2.fastNlMeansDenoising(gray, h=10)
-    binary = cv2.adaptiveThreshold(gray, 255,
-                                   cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+    binary = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                                    cv2.THRESH_BINARY, blockSize=15, C=8)
     k = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
     return cv2.morphologyEx(binary, cv2.MORPH_CLOSE, k)
@@ -267,9 +271,8 @@ def _make_thumbnail(img: np.ndarray, max_size: int = 120) -> str:
         h, w = img.shape[:2]
         if h == 0 or w == 0:
             return ""
-        scale = min(max_size / w, max_size / h, 1.0)
-        resized = cv2.resize(img,
-                             (max(1, int(w * scale)), max(1, int(h * scale))),
+        scale = min(max_size/w, max_size/h, 1.0)
+        resized = cv2.resize(img, (max(1, int(w*scale)), max(1, int(h*scale))),
                              interpolation=cv2.INTER_AREA)
         _, buf = cv2.imencode('.jpg', resized, [cv2.IMWRITE_JPEG_QUALITY, 75])
         return base64.b64encode(buf.tobytes()).decode('utf-8')

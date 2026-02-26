@@ -1,25 +1,23 @@
 """
-Check-in API.
-
-Flow:
-  POST /api/checkin/start          → create cube + session, return session_id
-  POST /api/checkin/<sid>/upload   → upload image, run detection, return cards
-  PATCH /api/checkin/<sid>/cards/<card_id> → update a card name
-  POST /api/checkin/<sid>/finalize → mark cube CHECKED_IN
-  GET  /api/checkin/<sid>          → get current session state
+Cube check-in API endpoints.
 """
 import os
 import uuid
 import logging
-from pathlib import Path
-from flask import Blueprint, current_app, jsonify, request
+from flask import Blueprint, request, jsonify, current_app, send_from_directory
+from werkzeug.utils import secure_filename
 
-from ..extensions import db
-from ..models import Cube, Card, CubeStatus, CardStatus
+from ..models import db, Cube, Card, CardStatus, CubeStatus
 from ..services.cube_checkin_service import CubeCheckinService
 
 logger = logging.getLogger(__name__)
-bp = Blueprint('checkin', __name__)
+bp = Blueprint('checkin', __name__, url_prefix='/api/checkin')
+
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'webp'}
+
+
+def _allowed_file(filename: str) -> bool:
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 def _get_service() -> CubeCheckinService:
@@ -34,169 +32,198 @@ def _get_service() -> CubeCheckinService:
     )
 
 
-# ── Start a check-in session ──────────────────────────────────────────────────
+# ── Upload & auto-detect ──────────────────────────────────────────────────────
 
-@bp.post('/start')
-def start_checkin():
+@bp.route('/upload', methods=['POST'])
+def upload_image():
     """
-    Create a Cube record and return a session_id.
+    POST /api/checkin/upload
+    Multipart: file=<image>, cube_id=<int>
 
-    Body (JSON):
-      tournament_id: int
-      owner_name: str
-      owner_email: str (optional)
-      cube_name: str
+    Runs full auto-detection on the image and returns detected cards with
+    polygons + OCR titles.
     """
-    data = request.get_json(silent=True) or {}
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
 
-    tournament_id = data.get('tournament_id')
-    owner_name = data.get('owner_name', '').strip()
-    cube_name = data.get('cube_name', '').strip()
+    file = request.files['file']
+    cube_id = request.form.get('cube_id', type=int)
 
-    if not tournament_id or not owner_name or not cube_name:
-        return jsonify({'error': 'tournament_id, owner_name, and cube_name are required'}), 400
+    if not file or not _allowed_file(file.filename):
+        return jsonify({'error': 'Invalid file type'}), 400
 
-    session_id = str(uuid.uuid4())
+    cube = Cube.query.get(cube_id) if cube_id else None
+    if cube is None:
+        return jsonify({'error': 'Cube not found'}), 404
 
-    cube = Cube(
-        tournament_id=tournament_id,
-        owner_name=owner_name,
-        owner_email=data.get('owner_email', ''),
-        cube_name=cube_name,
-        session_id=session_id,
-        status=CubeStatus.PENDING_CHECKIN,
-    )
-    db.session.add(cube)
+    # Save uploaded file
+    os.makedirs(current_app.config['UPLOAD_FOLDER'], exist_ok=True)
+    filename = f"{uuid.uuid4().hex}_{secure_filename(file.filename)}"
+    image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+    file.save(image_path)
+
+    cube.source_image_path = image_path
     db.session.commit()
 
-    return jsonify({'session_id': session_id, 'cube': cube.to_dict()}), 201
-
-
-# ── Get session state ─────────────────────────────────────────────────────────
-
-@bp.get('/<session_id>')
-def get_session(session_id):
-    cube = Cube.query.filter_by(session_id=session_id).first_or_404()
-    data = cube.to_dict(include_relations=True)
-
-    # Attach annotated image URL if available
-    if cube.annotated_image_path and os.path.exists(cube.annotated_image_path):
-        data['annotated_image_url'] = f'/api/checkin/{session_id}/annotated'
-
-    return jsonify(data)
-
-
-# ── Upload + process image ────────────────────────────────────────────────────
-
-@bp.post('/<session_id>/upload')
-def upload_image(session_id):
-    """
-    Accept a multipart image upload, run detection pipeline, persist cards.
-    Returns the detected card list.
-    """
-    cube = Cube.query.filter_by(session_id=session_id).first_or_404()
-
-    if 'image' not in request.files:
-        return jsonify({'error': 'No image file provided'}), 400
-
-    file = request.files['image']
-    if file.filename == '':
-        return jsonify({'error': 'Empty filename'}), 400
-
-    # Save original
-    ext = Path(file.filename).suffix or '.jpg'
-    filename = f"{session_id}{ext}"
-    upload_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-    file.save(upload_path)
-
-    cube.source_image_path = upload_path
-    db.session.flush()
-
     try:
-        service = _get_service()
-        cards = service.process_image(upload_path, cube)
+        svc = _get_service()
+        cards = svc.process_image(image_path, cube)
 
         # Persist cards
         for card in cards:
             db.session.add(card)
-        db.session.flush()
-
-        # Render annotated image
-        annotated_filename = f"{session_id}_annotated.jpg"
-        annotated_path = os.path.join(
-            current_app.config['ANNOTATED_FOLDER'], annotated_filename
-        )
-        service.render_annotated_image(upload_path, cards, annotated_path)
-        cube.annotated_image_path = annotated_path
-        cube.total_cards = len(cards)
-
         db.session.commit()
 
-    except Exception as exc:
+        # Render annotated image
+        os.makedirs(current_app.config['ANNOTATED_FOLDER'], exist_ok=True)
+        ann_filename = f"ann_{filename}"
+        ann_path = os.path.join(current_app.config['ANNOTATED_FOLDER'], ann_filename)
+        svc.render_annotated_image(image_path, cards, ann_path)
+        cube.annotated_image_path = ann_path
+        db.session.commit()
+
+        return jsonify({
+            'cube_id': cube.id,
+            'image_filename': filename,
+            'cards': [c.to_dict() for c in cards],
+            'total_detected': len(cards),
+        }), 200
+
+    except Exception as e:
+        logger.exception("Error processing image")
         db.session.rollback()
-        logger.exception("Image processing failed")
-        return jsonify({'error': str(exc)}), 500
-
-    return jsonify({
-        'cards': [c.to_dict() for c in cards],
-        'total_detected': len(cards),
-        'annotated_image_url': f'/api/checkin/{session_id}/annotated',
-    }), 200
+        return jsonify({'error': str(e)}), 500
 
 
-# ── Serve annotated image ─────────────────────────────────────────────────────
+# ── Detect card within a user-drawn region ────────────────────────────────────
 
-@bp.get('/<session_id>/annotated')
-def get_annotated(session_id):
-    from flask import send_file
-    cube = Cube.query.filter_by(session_id=session_id).first_or_404()
-    if not cube.annotated_image_path or not os.path.exists(cube.annotated_image_path):
-        return jsonify({'error': 'Annotated image not available'}), 404
-    return send_file(cube.annotated_image_path, mimetype='image/jpeg')
-
-
-# ── Update a single card ──────────────────────────────────────────────────────
-
-@bp.patch('/<session_id>/cards/<int:card_id>')
-def update_card(session_id, card_id):
+@bp.route('/detect-region', methods=['POST'])
+def detect_region():
     """
-    Confirm / correct a card name.
+    POST /api/checkin/detect-region
+    JSON: { cube_id, bbox: {x, y, width, height} }
 
-    Body (JSON):
-      confirmed_name: str
+    Detects the card inside the user-drawn bbox, runs OCR on it, and
+    returns a new Card (unsaved) with polygon + title.
     """
-    cube = Cube.query.filter_by(session_id=session_id).first_or_404()
-    card = Card.query.filter_by(id=card_id, cube_id=cube.id).first_or_404()
+    data = request.get_json(force=True)
+    cube_id = data.get('cube_id')
+    bbox = data.get('bbox')  # {x, y, width, height} in original image pixels
 
-    data = request.get_json(silent=True) or {}
-    confirmed_name = data.get('confirmed_name', '').strip()
+    if not cube_id or not bbox:
+        return jsonify({'error': 'cube_id and bbox required'}), 400
 
-    if not confirmed_name:
-        return jsonify({'error': 'confirmed_name is required'}), 400
+    cube = Cube.query.get(cube_id)
+    if cube is None or not cube.source_image_path:
+        return jsonify({'error': 'Cube not found or no image uploaded yet'}), 404
 
-    service = _get_service()
-    service.update_card_name(card, confirmed_name)
+    try:
+        import cv2
+        import numpy as np
+        from ..services.detection_service import DetectionService
+        from ..services.ocr_service import OCRService
+        from ..services.card_db_service import CardDatabaseService
 
-    return jsonify(card.to_dict())
+        cfg = current_app.config
+        img = cv2.imread(cube.source_image_path)
+        if img is None:
+            return jsonify({'error': 'Cannot read source image'}), 500
+
+        det = DetectionService(cfg.get('MIN_CARD_AREA', 1000), cfg.get('MAX_CARD_AREA', 500000))
+        rect = det.detect_card_in_region(img, bbox)
+        if rect is None:
+            return jsonify({'error': 'No card found in region'}), 422
+
+        polygon = det.rect_to_polygon(rect)
+
+        # Crop for OCR
+        (cx, cy), (rw, rh), angle = rect
+        box = np.array(polygon, dtype=np.int32)
+        bx, by, bw, bh = cv2.boundingRect(box)
+        h_img, w_img = img.shape[:2]
+        bx = max(0, bx); by = max(0, by)
+        bx2 = min(w_img, bx + bw); by2 = min(h_img, by + bh)
+        crop = img[by:by2, bx:bx2]
+
+        ocr = OCRService()
+        name_h = min(int(bh * 0.3), 120)
+        raw_text = ocr.read_text(crop[:name_h, :]) if crop.size > 0 else ''
+
+        card_db = CardDatabaseService(cfg['CARD_DB_FOLDER'])
+        card_db.ensure_loaded()
+        match_result = card_db.fuzzy_match(raw_text, cfg.get('FUZZY_MATCH_THRESHOLD', 70)) if raw_text else None
+
+        recognized_name = match_result[0] if match_result else None
+        match_score = match_result[1] if match_result else 0.0
+
+        # Thumbnail
+        svc = _get_service()
+        thumb = svc._create_thumbnail(crop)
+
+        card = Card(
+            cube_id=cube_id,
+            raw_ocr_text=raw_text,
+            recognized_name=recognized_name,
+            match_score=match_score,
+            status=CardStatus.DETECTED,
+            bbox_x=bx,
+            bbox_y=by,
+            bbox_width=bw,
+            bbox_height=bh,
+            polygon_json=polygon,
+            thumbnail_base64=thumb,
+        )
+        db.session.add(card)
+        db.session.commit()
+
+        return jsonify({'card': card.to_dict()}), 200
+
+    except Exception as e:
+        logger.exception("detect-region error")
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
 
 
-# ── Finalize check-in ─────────────────────────────────────────────────────────
+# ── Card CRUD ─────────────────────────────────────────────────────────────────
 
-@bp.post('/<session_id>/finalize')
-def finalize(session_id):
-    cube = Cube.query.filter_by(session_id=session_id).first_or_404()
+@bp.route('/cards/<int:card_id>', methods=['PATCH'])
+def update_card(card_id: int):
+    """PATCH /api/checkin/cards/<id>  — confirm/edit a card name."""
+    card = Card.query.get_or_404(card_id)
+    data = request.get_json(force=True)
 
-    service = _get_service()
-    service.finalize_cube(cube)
+    if 'confirmed_name' in data:
+        svc = _get_service()
+        svc.update_card_name(card, data['confirmed_name'])
 
-    return jsonify(cube.to_dict(include_relations=True))
+    return jsonify({'card': card.to_dict()}), 200
 
 
-# ── List cards for a session ──────────────────────────────────────────────────
+@bp.route('/cards/<int:card_id>', methods=['DELETE'])
+def delete_card(card_id: int):
+    """DELETE /api/checkin/cards/<id>"""
+    card = Card.query.get_or_404(card_id)
+    db.session.delete(card)
+    db.session.commit()
+    return jsonify({'deleted': card_id}), 200
 
-@bp.get('/<session_id>/cards')
-def list_cards(session_id):
-    cube = Cube.query.filter_by(session_id=session_id).first_or_404()
-    cards = Card.query.filter_by(cube_id=cube.id).order_by(Card.bbox_y, Card.bbox_x).all()
-    return jsonify([c.to_dict() for c in cards])
 
+@bp.route('/cubes/<int:cube_id>/finalize', methods=['POST'])
+def finalize(cube_id: int):
+    """POST /api/checkin/cubes/<id>/finalize"""
+    cube = Cube.query.get_or_404(cube_id)
+    svc = _get_service()
+    svc.finalize_cube(cube)
+    return jsonify({'cube': cube.to_dict()}), 200
+
+
+# ── Image serving ─────────────────────────────────────────────────────────────
+
+@bp.route('/images/annotated/<path:filename>')
+def serve_annotated(filename: str):
+    return send_from_directory(current_app.config['ANNOTATED_FOLDER'], filename)
+
+
+@bp.route('/images/upload/<path:filename>')
+def serve_upload(filename: str):
+    return send_from_directory(current_app.config['UPLOAD_FOLDER'], filename)

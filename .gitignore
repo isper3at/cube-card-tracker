@@ -63,3 +63,9 @@ visualizations/
 *.jpg
 *.png
 !docs/images/*.png
+
+# parcel
+./frontend/.parcel-cache/*
+dist/
+
+.dev-logs/*

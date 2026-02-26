@@ -14,9 +14,7 @@ export interface StartCheckinResponse {
 }
 
 export interface UploadResponse {
-  cards: Card[];
-  total_detected: number;
-  annotated_image_url: string;
+  message: string;
 }
 
 export function startCheckin(payload: StartCheckinPayload): Promise<StartCheckinResponse> {

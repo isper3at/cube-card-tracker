@@ -1,14 +1,18 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { listTournaments, createTournament } from '../api/tournaments';
-import { CheckinFlow } from '../components/checkin/CheckinFlow';
+import { startCheckin, uploadImage } from '../api/checkin';
+import CheckinFlow from '../components/checkin/CheckinFlow';
+import { ImageUpload } from '../components/checkin/ImageUpload';
 import { Tournament, Cube } from '../types';
 
-type View = 'select-tournament' | 'checkin';
+type View = 'select-tournament' | 'upload-image' | 'checkin';
+type CheckinState = { cubeId: number; imageUrl: string; sessionId: string } | null;
 
 export function CheckinPage() {
   const [view, setView] = useState<View>('select-tournament');
   const [tournaments, setTournaments] = useState<Tournament[]>([]);
   const [activeTournament, setActiveTournament] = useState<Tournament | null>(null);
+  const [checkinState, setCheckinState] = useState<CheckinState>(null);
   const [checkedInCubes, setCheckedInCubes] = useState<Cube[]>([]);
 
   // Create-tournament form state
@@ -19,6 +23,8 @@ export function CheckinPage() {
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [checkinError, setCheckinError] = useState<string | null>(null);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
 
   // Load existing tournaments on mount
   useEffect(() => {
@@ -49,12 +55,41 @@ export function CheckinPage() {
 
   function handleSelectTournament(t: Tournament) {
     setActiveTournament(t);
-    setView('checkin');
+    setView('upload-image');
+  }
+
+  async function handleImageSelected(file: File) {
+    setCheckinError(null);
+    setIsUploadingImage(true);
+
+    try {
+      // Start a new checkin session
+      const checkinResponse = await startCheckin({
+        tournament_id: activeTournament!.id,
+        owner_name: activeTournament!.name,
+        cube_name: `${activeTournament!.name} - ${new Date().toLocaleDateString()}`,
+      });
+
+      const sessionId = checkinResponse.session_id;
+
+      // Upload the image
+      await uploadImage(sessionId, file);
+
+      const imageUrl = URL.createObjectURL(file);
+      setCheckinState({ cubeId: checkinResponse.cube.id, imageUrl, sessionId });
+      setView('checkin');
+    } catch (err) {
+      setCheckinError(err instanceof Error ? err.message : 'Failed to start checkin');
+    } finally {
+      setIsUploadingImage(false);
+    }
   }
 
   function handleCheckinComplete(cube: Cube) {
     setCheckedInCubes((prev) => [cube, ...prev]);
-    // Stay on the checkin view so the user can check in another cube
+    // Reset to upload view for next cube
+    setCheckinState(null);
+    setView('upload-image');
   }
 
   // ── Tournament selection screen ───────────────────────────
@@ -173,7 +208,7 @@ export function CheckinPage() {
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b px-6 py-3 flex items-center gap-3">
         <button
-          onClick={() => { setView('select-tournament'); setCheckedInCubes([]); }}
+          onClick={() => { setView('select-tournament'); setCheckedInCubes([]); setCheckinState(null); }}
           className="text-gray-400 hover:text-gray-700 text-sm"
         >
           ← Tournaments
@@ -203,11 +238,47 @@ export function CheckinPage() {
         </div>
       )}
 
-      <CheckinFlow
-        tournamentId={activeTournament!.id}
-        onComplete={handleCheckinComplete}
-      />
+      {/* Upload image or show checkin flow */}
+      {view === 'upload-image' && (
+        <main className="max-w-2xl mx-auto p-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-1">Upload cube image</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Take a photo of your cube or upload an existing image to begin detection.
+          </p>
+          {checkinError && (
+            <p className="mb-4 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-3">
+              {checkinError}
+            </p>
+          )}
+          <ImageUpload onFileSelected={handleImageSelected} disabled={isUploadingImage} />
+        </main>
+      )}
+
+      {view === 'checkin' && checkinState && (
+        <CheckinFlow
+          cubeId={checkinState.cubeId}
+          imageUrl={checkinState.imageUrl}
+          sessionId={checkinState.sessionId}
+          onFinalize={(cards) => {
+            // TODO: Save cards to backend, then call handleCheckinComplete with the cube
+            const cube: Cube = {
+              id: checkinState.cubeId,
+              tournament_id: activeTournament?.id || 0,
+              owner_name: 'Unknown',
+              owner_email: null,
+              cube_name: `Cube ${checkinState.cubeId}`,
+              status: 'checked_in',
+              session_id: checkinState.sessionId,
+              total_cards: cards.length,
+              cards_confirmed: 0,
+              annotated_image_path: null,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            };
+            handleCheckinComplete(cube);
+          }}
+        />
+      )}
     </div>
   );
 }
-

@@ -293,3 +293,610 @@ Traceback (most recent call last):
     from scipy.signal import find_peaks
 ModuleNotFoundError: No module named 'scipy'
 
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 70, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 19, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+  File "/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py", line 70, in <module>
+    from scipy.signal import find_peaks
+ModuleNotFoundError: No module named 'scipy'
+
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [24/Feb/2026 11:16:52] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:16:52] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:16:52] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:17:00] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:17:00] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 11:17:32] "POST /api/checkin/3e9958a3-904e-43c5-ae79-af3ce2e7b3e5/upload HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:17:32] "GET /api/checkin/3e9958a3-904e-43c5-ae79-af3ce2e7b3e5/annotated?t=1771960652573 HTTP/1.1" 200 -
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [24/Feb/2026 11:50:18] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:50:18] "[35m[1mPOST /api/tournaments/ HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 11:54:27] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:54:28] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:54:34] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:54:34] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 11:54:34] "GET /api/tournaments/ HTTP/1.1" 200 -
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/api/checkin.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 39, in create_app
+    app.register_blueprint(checkin_bp, url_prefix='/api/checkin')
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 335, in register
+    deferred(state)
+    ~~~~~~~~^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+              ~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ...<2 lines>...
+    )
+AssertionError: View function mapping is overwriting an existing endpoint function: checkin.analyse_region
+ * Debugger is active!
+ * Debugger PIN: 858-991-302
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 39, in create_app
+    app.register_blueprint(checkin_bp, url_prefix='/api/checkin')
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 335, in register
+    deferred(state)
+    ~~~~~~~~^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+              ~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ...<2 lines>...
+    )
+AssertionError: View function mapping is overwriting an existing endpoint function: checkin.analyse_region
+ * Debugger is active!
+ * Debugger PIN: 858-991-302
+127.0.0.1 - - [24/Feb/2026 11:56:02] "[35m[1mOPTIONS /api/tournaments/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 974, in app
+    raise err from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 39, in create_app
+    app.register_blueprint(checkin_bp, url_prefix='/api/checkin')
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 335, in register
+    deferred(state)
+    ~~~~~~~~^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+    
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ^
+AssertionError: View function mapping is overwriting an existing endpoint function: checkin.analyse_region
+127.0.0.1 - - [24/Feb/2026 11:56:02] "[35m[1mOPTIONS /api/tournaments/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 974, in app
+    raise err from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/werkzeug/debug/__init__.py", line 347, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 974, in app
+    raise err from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 39, in create_app
+    app.register_blueprint(checkin_bp, url_prefix='/api/checkin')
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 335, in register
+    deferred(state)
+    ~~~~~~~~^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+    
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ^
+AssertionError: View function mapping is overwriting an existing endpoint function: checkin.analyse_region
+ * Detected change in '/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/bin/flask", line 8, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 1131, in main
+    cli.main()
+    ~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/decorators.py", line 93, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 979, in run_command
+    raise e from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 39, in create_app
+    app.register_blueprint(checkin_bp, url_prefix='/api/checkin')
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 335, in register
+    deferred(state)
+    ~~~~~~~~^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+              ~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ...<2 lines>...
+    )
+AssertionError: View function mapping is overwriting an existing endpoint function: checkin.analyse_region
+Traceback (most recent call last):
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/bin/flask", line 8, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 1131, in main
+    cli.main()
+    ~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/decorators.py", line 93, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 979, in run_command
+    raise e from None
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 963, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+                           ~~~~~~~~~~~~~^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 39, in create_app
+    app.register_blueprint(checkin_bp, url_prefix='/api/checkin')
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 335, in register
+    deferred(state)
+    ~~~~~~~~^^^^^^^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+              ~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        rule,
+        ^^^^^
+    ...<3 lines>...
+        **options,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/home/me/.cache/pypoetry/virtualenvs/cube-card-tracker-backend-Tk9Kn9-O-py3.13/lib/python3.13/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ...<2 lines>...
+    )
+AssertionError: View function mapping is overwriting an existing endpoint function: checkin.analyse_region
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [24/Feb/2026 12:07:05] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:07:05] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:07:05] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:07:40] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:07:40] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 12:07:43] "POST /api/checkin/25544913-c204-4898-a143-0b794590d8eb/upload HTTP/1.1" 200 -
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [24/Feb/2026 12:17:46] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:17:46] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:17:46] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:17:59] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:17:59] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 12:17:59] "POST /api/checkin/e8a2fed2-7e39-4f96-bb32-6a81a06da191/upload HTTP/1.1" 200 -
+nohup: ignoring input
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 890-871-552
+127.0.0.1 - - [24/Feb/2026 12:19:20] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 12:19:29] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 12:19:39] "POST /api/checkin/f6dc3987-c0ae-4d59-b3b0-abe0f7e2ea89/upload HTTP/1.1" 200 -
+Image processing failed
+Traceback (most recent call last):
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 135, in scan_image
+    cards = service.process_image(cube.source_image_path, cube)
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 84, in process_image
+    raise ValueError(f"Could not load image: {image_path}")
+ValueError: Could not load image: /home/me/dev/cube-card-tracker/backend/data/uploads/f6dc3987-c0ae-4d59-b3b0-abe0f7e2ea89.jpg
+127.0.0.1 - - [24/Feb/2026 12:19:48] "[35m[1mPOST /api/checkin/f6dc3987-c0ae-4d59-b3b0-abe0f7e2ea89/scan HTTP/1.1[0m" 500 -
+127.0.0.1 - - [24/Feb/2026 12:21:28] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:21:29] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:21:29] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:21:36] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:21:37] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 12:21:37] "POST /api/checkin/adef81b0-bc1e-4baf-a340-2976079071c1/upload HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:28:19] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:28:19] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:28:19] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:28:30] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:28:31] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 12:28:32] "POST /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/upload HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:28:55] "POST /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/scan HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:21] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/139 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:22] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/139 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:24] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/138 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:24] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/138 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:36] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/109 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:36] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/109 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:45] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/76 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:45] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/76 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:46] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/78 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:47] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/78 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:48] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/79 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:48] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/79 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:49] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/77 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:49] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/77 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:50] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/80 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:50] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/80 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:51] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/81 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:51] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/81 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:56] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:29:57] "POST /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:30:07] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/134 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:30:07] "DELETE /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/cards/134 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:30:10] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:30:11] "POST /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:30:34] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+Region analysis failed
+Traceback (most recent call last):
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 188, in analyse_region
+    card = service.analyze_card_region(cube.source_image_path, bbox, cube)
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 243, in analyze_card_region
+    raise ValueError("Could not process card region (region too small?)")
+ValueError: Could not process card region (region too small?)
+127.0.0.1 - - [24/Feb/2026 12:30:34] "[35m[1mPOST /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1[0m" 500 -
+127.0.0.1 - - [24/Feb/2026 12:31:08] "OPTIONS /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:31:09] "POST /api/checkin/7929dffc-4269-457b-83f8-03b2b20e424c/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:36:19] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:36:19] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 12:36:19] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:07:24] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:07:25] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:07:25] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:21:46] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:21:53] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [24/Feb/2026 13:21:57] "POST /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/upload HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:22:26] "POST /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/scan HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:22:55] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:01] "POST /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/analyse-region HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:35] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/173 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:35] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/173 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:37] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/176 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:37] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/176 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:38] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/161 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:39] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/161 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:40] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/156 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:40] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/156 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:42] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/151 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:43] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/151 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:43] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/150 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:44] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/150 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:44] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/148 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:45] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/148 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:46] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/146 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:46] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/146 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:48] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/149 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:49] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/149 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:50] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/158 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:50] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/158 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:51] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/155 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:51] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/155 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:54] "OPTIONS /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/147 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2026 13:23:54] "DELETE /api/checkin/fc62e606-a7a4-4279-a1eb-86c03bbf161a/cards/147 HTTP/1.1" 200 -
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 139-632-729
+127.0.0.1 - - [26/Feb/2026 11:34:33] "OPTIONS /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [26/Feb/2026 11:34:33] "GET /api/tournaments/ HTTP/1.1" 200 -
+127.0.0.1 - - [26/Feb/2026 11:35:13] "OPTIONS /api/checkin/start HTTP/1.1" 200 -
+127.0.0.1 - - [26/Feb/2026 11:35:13] "[35m[1mPOST /api/checkin/start HTTP/1.1[0m" 201 -
+127.0.0.1 - - [26/Feb/2026 11:35:14] "POST /api/checkin/8d1fc34e-34a2-407c-9416-bcb4a0ef365b/upload HTTP/1.1" 200 -
+127.0.0.1 - - [26/Feb/2026 11:35:31] "POST /api/checkin/8d1fc34e-34a2-407c-9416-bcb4a0ef365b/scan HTTP/1.1" 200 -
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: While importing 'wsgi', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/home/me/dev/cube-card-tracker/.venv/lib/python3.13/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/me/dev/cube-card-tracker/backend/wsgi.py", line 4, in <module>
+    app = create_app()
+  File "/home/me/dev/cube-card-tracker/backend/app/__init__.py", line 34, in create_app
+    from .api.checkin import bp as checkin_bp
+  File "/home/me/dev/cube-card-tracker/backend/app/api/checkin.py", line 11, in <module>
+    from ..services.cube_checkin_service import CubeCheckinService
+  File "/home/me/dev/cube-card-tracker/backend/app/services/cube_checkin_service.py", line 32, in <module>
+    from .detection_service import DetectionService, BBox
+ImportError: cannot import name 'BBox' from 'app.services.detection_service' (/home/me/dev/cube-card-tracker/backend/app/services/detection_service.py)
+
+ * Serving Flask app 'wsgi:app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.109:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 139-632-729

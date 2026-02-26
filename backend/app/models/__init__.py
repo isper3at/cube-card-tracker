@@ -57,6 +57,7 @@ class CardStatus(str, Enum):
     CONFIRMED = 'confirmed'
     DRAFTED = 'drafted'
     RETURNED = 'returned'
+    REMOVED = 'removed'
 
 
 # ── Models ────────────────────────────────────────────────────────────────────

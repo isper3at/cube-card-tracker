@@ -97,3 +97,882 @@ whenever possible.
 Bundling...
 Server running at http://localhost:5173
 ✨ Built in 4.58s
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Server running at http://localhost:5173
+✨ Built in 5.26s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/core: src/components/checkin/CheckinFlow.tsx does not export 
+'CheckinFlow'
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:3:10
+    2 | import { listTournaments, createTournament } from '../api/tournaments';
+  > 3 | import { CheckinFlow } from '../components/checkin/CheckinFlow';
+  >   |          ^^^^^^^^^^^
+    4 | import { Tournament, Cube } from '../types';
+    5 | 
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 7.34s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 9.75s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 2.04s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.18s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+✨ Built in 263ms
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 5.25s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:67:31
+    66 |       // Start a new checkin session
+  > 67 |       const checkinResponse = await startCheckin({
+  >    |                               ^^^^^
+    68 |         tournament_id: activeTournament!.id,
+    69 |         owner_name: activeTournament!.name,
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:76:7
+    75 |       // Upload the image
+  > 76 |       await uploadImage(sessionId, file);
+  >    |       ^^^^^
+    77 | 
+    78 |       const imageUrl = URL.createObjectURL(file);
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:67:31
+    66 |       // Start a new checkin session
+  > 67 |       const checkinResponse = await startCheckin({
+  >    |                               ^^^^^
+    68 |         tournament_id: activeTournament!.id,
+    69 |         owner_name: activeTournament!.name,
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:76:7
+    75 |       // Upload the image
+  > 76 |       await uploadImage(sessionId, file);
+  >    |       ^^^^^
+    77 | 
+    78 |       const imageUrl = URL.createObjectURL(file);
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:67:31
+    66 |       // Start a new checkin session
+  > 67 |       const checkinResponse = await startCheckin({
+  >    |                               ^^^^^
+    68 |         tournament_id: activeTournament!.id,
+    69 |         owner_name: activeTournament!.name,
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:76:7
+    75 |       // Upload the image
+  > 76 |       await uploadImage(sessionId, file);
+  >    |       ^^^^^
+    77 | 
+    78 |       const imageUrl = URL.createObjectURL(file);
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:67:31
+    66 |       // Start a new checkin session
+  > 67 |       const checkinResponse = await startCheckin({
+  >    |                               ^^^^^
+    68 |         tournament_id: activeTournament!.id,
+    69 |         owner_name: activeTournament!.name,
+
+@parcel/transformer-js: await isn't allowed in non-async function
+
+  /home/me/dev/cube-card-tracker/frontend/src/pages/CheckinPage.tsx:76:7
+    75 |       // Upload the image
+  > 76 |       await uploadImage(sessionId, file);
+  >    |       ^^^^^
+    77 | 
+    78 |       const imageUrl = URL.createObjectURL(file);
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 4.19s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 4.58s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 20.81s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 6.34s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.31s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 2.11s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 2.25s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 840ms
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.07s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 3.23s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.29s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.15s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 883ms
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 804ms
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:61:6
+    60 |   return (
+  > 61 |     <aside style={S.root}>
+  >    |      ^^^^^
+    62 | 
+    63 |       {/* ── tab bar ──────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:61:6
+    60 |   return (
+  > 61 |     <aside style={S.root}>
+  >    |      ^^^^^
+    62 | 
+    63 |       {/* ── tab bar ──────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:61:6
+    60 |   return (
+  > 61 |     <aside style={S.root}>
+  >    |      ^^^^^
+    62 | 
+    63 |       {/* ── tab bar ──────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:61:6
+    60 |   return (
+  > 61 |     <aside style={S.root}>
+  >    |      ^^^^^
+    62 | 
+    63 |       {/* ── tab bar ──────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:325:6
+    324 |   return (
+  > 325 |     <aside style={S.root}>
+  >     |      ^^^^^
+    326 | 
+    327 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:325:6
+    324 |   return (
+  > 325 |     <aside style={S.root}>
+  >     |      ^^^^^
+    326 | 
+    327 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:325:6
+    324 |   return (
+  > 325 |     <aside style={S.root}>
+  >     |      ^^^^^
+    326 | 
+    327 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:325:6
+    324 |   return (
+  > 325 |     <aside style={S.root}>
+  >     |      ^^^^^
+    326 | 
+    327 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `aside`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:335:6
+    334 |   return (
+  > 335 |     <aside style={S.root}>
+  >     |      ^^^^^
+    336 | 
+    337 |       {/* ── tab bar ─────────────────────────────────────────────────
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `div`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:304:6
+    303 |   return (
+  > 304 |     <div style={S.empty}>
+  >     |      ^^^
+    305 |       <span style={S.emptyGlyph}}>
+    306 |         {tab === "found" ? "◈" : "◎"}
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+🚨 Build failed.
+
+@parcel/transformer-js: Unexpected token `div`. Expected jsx identifier
+
+  /home/me/dev/cube-card-tracker/frontend/src/components/checkin/CardList.tsx:304:6
+    303 |   return (
+  > 304 |     <div style={S.empty}>
+  >     |      ^^^
+    305 |       <span style={S.emptyGlyph}}>
+    306 |         {tab === "found" ? "◈" : "◎"}
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 38.82s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.89s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.65s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 950ms
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 1.04s
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+✨ Built in 3.49s
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Server running at http://localhost:5173
+✨ Built in 18.42s
+
+> cube-card-tracker-frontend@0.1.0 dev
+> parcel src/index.html --port 5173
+
+Building...
+
+@parcel/transformer-postcss: WARNING: Using a JavaScript PostCSS config file 
+means losing out on caching features of Parcel. Use a .postcssrc(.json) file 
+whenever possible.
+Bundling...
+Packaging & Optimizing...
+Server running at http://localhost:5173
+✨ Built in 79.29s
